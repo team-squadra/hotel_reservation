@@ -81,7 +81,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           image: AssetImage('assets/images/splashBg.gif'),
                           fit: BoxFit.cover)),
                 ),
-                FadeAnimation(1.5,Text("Hotel .Blah Blah", style: TextStyle(
+                FadeAnimation(1.5,Text("Hotel .වළව්ව", style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold
                 )))
