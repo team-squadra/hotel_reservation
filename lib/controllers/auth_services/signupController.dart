@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:hotelreservation/controllers/baseUrl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginService {
-  static Future<String> Login(body) async {
+class SignUpService {
+  static Future<String> SignUp(body) async {
 
      Map<String, String> requestHeaders = {
        'Content-Type': 'application/json'
@@ -13,7 +12,7 @@ class LoginService {
 
 
     final response =
-        await http.post('${URLS.BASE_URL}/user/login', body: jsonEncode(body) , headers: requestHeaders);
+        await http.post('${URLS.BASE_URL}/user/register', body: jsonEncode(body) , headers: requestHeaders);
 
     var data = response.body;
     print(body);
@@ -23,16 +22,11 @@ class LoginService {
 
     
 
-    if (res_data['status'] == 'user') {
-      print(res_data['status']);
-      final _token = res_data['token'];
-      print(_token);
-      SharedPreferences login = await SharedPreferences.getInstance();
-      login.setString("gettoken", _token);
+    // if (res_data['status'] == 'success') {
+    if (response.statusCode == 200) {
+      final result = res_data['status'];
 
-      final status = res_data['status'];
-
-      return status;
+      return result;
 
     } 
     else 

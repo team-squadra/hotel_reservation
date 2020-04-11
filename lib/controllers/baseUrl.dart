@@ -1,3 +1,3 @@
 class URLS {
-  static const String BASE_URL = 'https://mighty-inlet-78383.herokuapp.com/api';
+  static const String BASE_URL = 'https://tranquil-plains-87796.herokuapp.com/api';
 }

@@ -72,6 +72,7 @@ with TickerProviderStateMixin {
            _isLogin = true; 
           });
           _positionController.forward();
+          print("pkaya");
         },
         child: Container(
           height: 63,

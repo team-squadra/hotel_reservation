@@ -34,7 +34,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                  FadeAnimation(2.4,Text("Welcome To Hotel", style: TextStyle(
+                  FadeAnimation(2.4,Text("Welcome To", style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
                   letterSpacing: 2
