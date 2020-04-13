@@ -22,8 +22,8 @@ class LoginService {
     Map<String, dynamic> res_data = jsonDecode(data);
 
     
-
-    if (res_data['status'] == 'user') {
+    try{
+          if (response.statusCode == 200) {
       print(res_data['status']);
       final _token = res_data['token'];
       print(_token);
@@ -41,6 +41,10 @@ class LoginService {
       final error = res_data['error'];
       return error;
     }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+ 
     // return false;
   }
 }
