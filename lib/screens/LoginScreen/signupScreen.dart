@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/screens/LoginScreen/components/customTextfield.dart';
-import 'package:hotelreservation/screens/LoginScreen/loginScreen.dart';
-import 'package:hotelreservation/screens/LoginScreen/utils/dialogs.dart';
-import 'package:hotelreservation/screens/LoginScreen/utils/signup_validations.dart';
-import 'package:hotelreservation/controllers/auth_services/signupController.dart';
+import 'package:hotelreservation/Screens/LoginScreen/components/customTextfield.dart';
+import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
+import 'package:hotelreservation/Screens/LoginScreen/utils/dialogs.dart';
+import 'package:hotelreservation/Screens/LoginScreen/utils/signup_validations.dart';
+import 'package:hotelreservation/Controllers/auth_services/signupController.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 

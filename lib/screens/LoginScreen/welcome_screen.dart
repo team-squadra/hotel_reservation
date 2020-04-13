@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/animations/fadeAnimation.dart';
-import 'package:hotelreservation/screens/LoginScreen/components/customButton.dart';
-import 'package:hotelreservation/screens/LoginScreen/components/customButtonAnimation.dart';
-import 'package:hotelreservation/screens/LoginScreen/loginScreen.dart';
-import 'package:hotelreservation/screens/LoginScreen/signupScreen.dart';
+import 'package:hotelreservation/Animations/fadeAnimation.dart';
+import 'package:hotelreservation/Screens/LoginScreen/components/customButton.dart';
+import 'package:hotelreservation/Screens/LoginScreen/components/customButtonAnimation.dart';
+import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
+import 'package:hotelreservation/Screens/LoginScreen/signupScreen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override

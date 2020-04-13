@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/animations/fadeAnimation.dart';
-import 'package:hotelreservation/screens/HomeScreen/home_screen.dart';
+import 'package:hotelreservation/Animations/fadeAnimation.dart';
+import 'package:hotelreservation/Screens/HomeScreen/home_screen.dart';
 import 'dart:async';
-import 'package:hotelreservation/screens/LoginScreen/welcome_screen.dart';
+import 'package:hotelreservation/Screens/LoginScreen/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

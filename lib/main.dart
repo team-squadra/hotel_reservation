@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hotelreservation/common/theme.dart';
-import 'package:hotelreservation/screens/SplashScreen/splash_screen.dart';
+import 'package:hotelreservation/Common/theme.dart';
+import 'package:hotelreservation/Screens/SplashScreen/splash_screen.dart';
 
 void main() => runApp(HotelConceptApp());
 

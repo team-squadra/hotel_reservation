@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/theme.dart';
-import 'package:hotelreservation/common/widget/blur_icon.dart';
-import 'package:hotelreservation/screens/HomeScreen/book_screen.dart';
-import 'package:hotelreservation/common/navigation/fade_route.dart';
-import 'package:hotelreservation/common/icons.dart';
-import 'package:hotelreservation/common/components/home_components/parallax_page_view.dart';
-import 'package:hotelreservation/common/components/home_components/sliding_bottom_sheet.dart';
+import 'package:hotelreservation/Common/theme.dart';
+import 'package:hotelreservation/Common/widget/blur_icon.dart';
+import 'package:hotelreservation/Screens/HomeScreen/book_screen.dart';
+import 'package:hotelreservation/Common/navigation/fade_route.dart';
+import 'package:hotelreservation/Common/icons.dart';
+import 'package:hotelreservation/Common/components/home_components/parallax_page_view.dart';
+import 'package:hotelreservation/Common/components/home_components/sliding_bottom_sheet.dart';
 import 'package:page_indicator/page_indicator.dart';
 import 'package:rect_getter/rect_getter.dart';
 

@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hotelreservation/common/theme.dart';
+import 'package:hotelreservation/Common/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hotelreservation/screens/HomeScreen/home_content.dart';
+import 'package:hotelreservation/Screens/HomeScreen/home_content.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hotelreservation/common/components/home_components/parallax_sliding_card.dart';
+import 'package:hotelreservation/Common/components/home_components/parallax_sliding_card.dart';
 
 class StubData {
   static final StubData _singleton = StubData._internal();

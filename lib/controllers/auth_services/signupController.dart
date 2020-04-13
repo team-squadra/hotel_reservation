@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
-import 'package:hotelreservation/controllers/baseUrl.dart';
+import 'package:hotelreservation/Controllers/baseUrl.dart';
 
 class SignUpService {
   static Future<String> SignUp(body) async {

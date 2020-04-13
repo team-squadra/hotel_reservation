@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/theme.dart';
+import 'package:hotelreservation/Common/theme.dart';
 
 class BlurIcon extends StatelessWidget {
   final double width;

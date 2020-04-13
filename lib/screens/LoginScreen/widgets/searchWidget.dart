@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/screens/LoginScreen/components/searchTextfield.dart';
+import 'package:hotelreservation/Screens/LoginScreen/components/searchTextfield.dart';
 
 class SearchWidget extends StatelessWidget {
   @override

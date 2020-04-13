@@ -3,9 +3,9 @@ import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/icons.dart';
-import 'package:hotelreservation/common/widget/blur_icon.dart';
-import 'package:hotelreservation/common/components/home_components/parallax_page_view.dart';
+import 'package:hotelreservation/Common/icons.dart';
+import 'package:hotelreservation/Common/widget/blur_icon.dart';
+import 'package:hotelreservation/Common/components/home_components/parallax_page_view.dart';
 
 class SlidingCard extends StatelessWidget {
   final String title;

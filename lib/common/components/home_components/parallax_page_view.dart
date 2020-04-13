@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/components/home_components/parallax_sliding_card.dart';
+import 'package:hotelreservation/Common/components/home_components/parallax_sliding_card.dart';
 
 class ParallaxPageView extends StatefulWidget {
   final double viewportFraction;

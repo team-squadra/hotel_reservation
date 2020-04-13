@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/theme.dart';
+import 'package:hotelreservation/Common/theme.dart';
 
 class BookScreen extends StatefulWidget {
   @override

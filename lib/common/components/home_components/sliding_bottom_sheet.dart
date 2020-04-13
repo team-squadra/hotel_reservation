@@ -2,8 +2,8 @@ import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/theme.dart';
-import 'package:hotelreservation/common/components/home_components/sliding_bottom_sheet_content.dart';
+import 'package:hotelreservation/Common/theme.dart';
+import 'package:hotelreservation/Common/components/home_components/sliding_bottom_sheet_content.dart';
 
 class SlidingBottomSheet extends StatefulWidget {
   final AnimationController controller;

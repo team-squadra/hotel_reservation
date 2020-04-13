@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/controllers/auth_services/loginController.dart';
-import 'package:hotelreservation/screens/LoginScreen/components/customTextfield.dart';
-import 'package:hotelreservation/screens/HomeScreen/home_screen.dart';
-import 'package:hotelreservation/screens/LoginScreen/utils/dialogs.dart';
-import 'package:hotelreservation/screens/LoginScreen/widgets/headerWidget.dart';
+import 'package:hotelreservation/Controllers/auth_services/loginController.dart';
+import 'package:hotelreservation/Screens/LoginScreen/components/customTextfield.dart';
+import 'package:hotelreservation/Screens/HomeScreen/home_screen.dart';
+import 'package:hotelreservation/Screens/LoginScreen/utils/dialogs.dart';
+import 'package:hotelreservation/Screens/LoginScreen/widgets/headerWidget.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:progress_dialog/progress_dialog.dart';
-import 'package:hotelreservation/screens/LoginScreen/utils/login_validations.dart';
+import 'package:hotelreservation/Screens/LoginScreen/utils/login_validations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -223,7 +223,8 @@ class _LoginScreenState extends State<LoginScreen>
     String emailValidate = LoginValidations.validateEmail(email);
     String passValidate = LoginValidations.validatePassword(password);
 
-    if (cheknull) {
+    try{
+        if (cheknull) {
       if (emailValidate == 'valid') {
         if (passValidate == 'valid') {
 
@@ -239,6 +240,12 @@ class _LoginScreenState extends State<LoginScreen>
       Dialogs.errorDialog(
           context, 'Validation Error', 'Both fields required !');
     }
+      
+    } catch (e){
+      throw Exception(e.toString());
+    }
+
+  
   }
 
   setToken() async {
@@ -270,7 +277,7 @@ class _LoginScreenState extends State<LoginScreen>
       }
       else if(_result == 'admin'){
         pr.hide();
-        Dialogs.errorDialog(context, 'ERROR', "This is not a user Login !");
+        Dialogs.errorDialog(context, 'ERROR', "This is not a user acccount !");
       }
       
        else {

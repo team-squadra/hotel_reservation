@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hotelreservation/common/icons.dart';
-import 'package:hotelreservation/common/stub_data.dart';
-import 'package:hotelreservation/common/theme.dart';
-import 'package:hotelreservation/common/components/home_components/parallax_page_view.dart';
+import 'package:hotelreservation/Common/icons.dart';
+import 'package:hotelreservation/Common/stub_data.dart';
+import 'package:hotelreservation/Common/theme.dart';
+import 'package:hotelreservation/Common/components/home_components/parallax_page_view.dart';
 
 class BottomSheetContent extends StatelessWidget {
   final AnimationController controller;
