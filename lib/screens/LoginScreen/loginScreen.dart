@@ -267,7 +267,14 @@ class _LoginScreenState extends State<LoginScreen>
           _isLogin = true;
         });
         _positionController.forward();
-      } else {
+      }
+      else if(_result == 'admin'){
+        pr.hide();
+        Dialogs.errorDialog(context, 'ERROR', "This is not a user Login !");
+      }
+      
+       else {
+        pr.hide();
         Dialogs.errorDialog(context, 'ERROR', _result);
       }
     });
