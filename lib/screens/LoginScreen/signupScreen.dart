@@ -259,7 +259,8 @@ class _SignUpState extends State<SignUp> with TickerProviderStateMixin {
       "name": username,
       "email": email,
       "password": password,
-      "phone_number": phonenum
+      "phone_number": phonenum,
+      "status": "user"
     };
 
     SignUpService.SignUp(body).then((result) {

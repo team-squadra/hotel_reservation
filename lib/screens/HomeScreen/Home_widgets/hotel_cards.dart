@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hotelreservation/Controllers/hotel_controllers/getHotelsService.dart';
 import 'package:hotelreservation/Models/hotelModel.dart';
+import 'package:hotelreservation/Screens/HomeScreen/detail_screen.dart';
 
 class HotelCards extends StatefulWidget {
   HotelCards({Key key}) : super(key: key);
@@ -34,6 +35,7 @@ class _HotelCardsState extends State<HotelCards> {
             return GestureDetector(
               onTap: () {
                 print(hotelsList[index].hotelName);
+                Navigator.of(context).pushNamed("/details");
               },
               child: Container(
                 margin: const EdgeInsets.only(

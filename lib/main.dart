@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotelreservation/Common/theme.dart';
+import 'package:hotelreservation/Screens/HomeScreen/detail_screen.dart';
+import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
 import 'package:hotelreservation/Screens/SplashScreen/splash_screen.dart';
 
 void main() => runApp(HotelConceptApp());
@@ -22,7 +24,14 @@ class _HotelConceptAppState extends State<HotelConceptApp> {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: themeData,
-      home: SplashScreen()
+      home: SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        
+        "/details": (BuildContext context) => new DetailScreen(),
+      
+
+       
+      },
     );
   }
 }
