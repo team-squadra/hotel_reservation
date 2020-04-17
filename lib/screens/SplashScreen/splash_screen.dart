@@ -1,9 +1,9 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hotelreservation/Animations/fadeAnimation.dart';
 import 'package:hotelreservation/Screens/HomeScreen/home_screen.dart';
 import 'dart:async';
 import 'package:hotelreservation/Screens/LoginScreen/welcome_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,14 +12,14 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  // SharedPreferences initializeToken;
+  SharedPreferences logininit;
 
   @override
   void initState() {
     super.initState();
     
-    // checkLoginStatus();
-    navigateToLogin();
+    checkLoginStatus();
+    // navigateToLogin();
   }
 
   navigateToHome(){
@@ -46,20 +46,20 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  // checkLoginStatus() async {
+  checkLoginStatus() async {
 
-  //   initializeToken = await SharedPreferences.getInstance();
-  //   if (initializeToken.getString("authtoken") == null) {
-  //     navigateToLogin();
-  //   } 
-  //   else 
-  //   {
-  //     initializeToken = await SharedPreferences.getInstance();
-  //     final _token = initializeToken.getString("authtoken");
-  //     print(_token);
-  //     navigateToHome();
-  //   }
-  // }
+    logininit = await SharedPreferences.getInstance();
+    if (logininit.getString("token") == null) {
+      navigateToLogin();
+    } 
+    else 
+    {
+      logininit = await SharedPreferences.getInstance();
+      final _token = logininit.getString("token");
+      print(_token);
+      navigateToHome();
+    }
+  }
 
 
 

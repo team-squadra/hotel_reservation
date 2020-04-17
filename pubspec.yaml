@@ -70,7 +70,7 @@ flutter:
     - family:  HotelBookingConcept
       fonts:
         - asset: assets/fonts/HotelBookingConcept.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

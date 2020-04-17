@@ -19,7 +19,7 @@ class SignUpService {
     // if (res_data['status'] == 'success') {
     try {
       if (response.statusCode == 200) {
-        final result = res_data['status'];
+        final result = res_data['error'];
 
         return result;
       } else {

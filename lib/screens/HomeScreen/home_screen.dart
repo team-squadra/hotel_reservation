@@ -1,10 +1,8 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:hotelreservation/Common/theme.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hotelreservation/Screens/HomeScreen/home_content.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:hotelreservation/Screens/HomeScreen/Home_widgets/bottom_nav_bar.dart';
+import 'package:hotelreservation/Screens/HomeScreen/Home_widgets/hotel_cards.dart';
+import 'package:hotelreservation/utils/loading_dialogs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -13,91 +11,170 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
+class _HomeScreenState extends State<HomeScreen> {
+  SharedPreferences logininit;
+  String _searchText;
 
-  TabController _controller;
-  final List<Widget> tabBarScreens = [
-    HomeContent(),
-    Container(color: Colors.lightBlueAccent),
-    Container(color: Colors.lightBlue),
-    Container(color: Colors.blue),
-    Container(color: Colors.blueAccent),
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TabController(
-        initialIndex: 0, length: tabBarScreens.length, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
- Future<bool> onBackPressed() {
-    return AwesomeDialog(
-            context: context,
-            dialogType: DialogType.WARNING,
-            // customHeader: Image.asset("assets/images/macha.gif"),
-            animType: AnimType.TOPSLIDE,
-            btnOkText: "yes",
-            btnCancelText: " No..",
-            tittle: 'Are you sure ?',
-            desc: 'Do you want to exit an App',
-            btnCancelOnPress: () {},
-            btnOkOnPress: () {
-              exit(0);
-            }).show() ??
-        false;
-  }
-  
-
-  @override
-  Widget build(BuildContext context) {
-
-    final themeData = HotelConceptThemeProvider.get();
-    return WillPopScope(
-         onWillPop: onBackPressed,
-          child: Scaffold(
-          backgroundColor: themeData.scaffoldBackgroundColor,
-          body: TabBarView(
-            controller: _controller,
-            children: tabBarScreens,
-            physics: NeverScrollableScrollPhysics(),
-          ),
-          bottomNavigationBar: TabBar(
-            controller: _controller,
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorColor: Colors.transparent,
-            isScrollable: false,
-            tabs: [
-              _buildTabIcon("assets/images/tab_bar_home.svg", 0, themeData),
-              _buildTabIcon("assets/images/tab_bar_messages.svg", 1, themeData),
-              _buildTabIcon("assets/images/tab_bar_search.svg", 2, themeData),
-              _buildTabIcon("assets/images/tab_bar_notifications.svg", 3, themeData),
-              _buildTabIcon("assets/images/tab_bar_profile.svg", 4, themeData),
-            ],
-            onTap: (index) {
-              setState(() {});
-            },
-          ),
+  Widget _buildHeader() {
+    return Positioned(
+      top: 30,
+      height: 70,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              'Hello User !',
+              style: TextStyle(
+                fontSize: 25.0,
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.50,
+            ),
+            Container(
+              height: 45,
+              width: 45,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(45)),
+                  border: Border.all(width: 2.0, color: Colors.blue)),
+              child: IconButton(
+                icon:Icon(Icons.exit_to_app,
+                size: 25,
+                color: Color(0xFFFB8C00)), 
+                onPressed: () {
+                  logOut();
+                },
+              ),
+            )
+          ],
         ),
+      ),
     );
   }
 
-    Widget _buildTabIcon(String assetName, int index, ThemeData themeData) {
-    return Tab(
-        icon: Container(
-          child: SvgPicture.asset(
-    assetName,
-    color: index == _controller.index
-          ? themeData.accentColor
-          : themeData.primaryColorLight,
+  logOut() async {
+    SharedPreferences logininit = await SharedPreferences.getInstance();
+    logininit.remove("token");
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (BuildContext ctx) =>  LoggingOut()));
+  }
+
+  Widget _buildBody() {
+    return Builder(
+      builder: (BuildContext context) {
+        return Positioned(
+          top: 90,
+          child: Container(
+            height: MediaQuery.of(context).size.height - 100,
+            width: MediaQuery.of(context).size.width,
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Discover',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35.0,
+                    ),
+                  ),
+                  Text(
+                    'Suitable Hotel',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFe2d7f5),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: Color(0xff7645c7),
+                                ),
+                                hintText: 'Find a good hotel',
+                                hintStyle: TextStyle(
+                                  color: Color(0xff7645c7),
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            onChanged: (String value) {
+                              _searchText = value;
+                            },
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          // if(_searchText != null){
+                          //   Navigator.push(context, MaterialPageRoute(builder: (context) => SearchResult(realEstatesResult)));
+                          // }
+                        },
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        splashColor: Color(0xff7645c7),
+                        child: Container(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30.0)),
+                            color: Color(0xFFe2d7f5),
+                          ),
+                          child: Icon(
+                            Icons.search,
+                            color: Color(0xff7645c7),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  // renderHotelCards(),
+                  HotelCards(),
+                  BottomNavBar(),
+                ],
+              ),
+            ),
           ),
-        ),
-      );
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        // backgroundColor: Color(0xFFFFA726),
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: <Widget>[
+            _buildHeader(),
+            _buildBody(),
+          ],
+        ));
   }
 }
