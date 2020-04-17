@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotelreservation/Screens/HomeScreen/home_screen.dart';
 import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
+import 'package:hotelreservation/Screens/LoginScreen/welcome_screen.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,7 +31,7 @@ class _LoggingOutState extends State<LoggingOut> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LoginScreen(
+            builder: (context) => WelcomeScreen(
             ),
           ),
         );

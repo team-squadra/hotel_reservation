@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hotelreservation/Animations/fadeAnimation.dart';
-import 'package:hotelreservation/Screens/LoginScreen/components/customButton.dart';
 import 'package:hotelreservation/Screens/LoginScreen/components/customButtonAnimation.dart';
 import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
 import 'package:hotelreservation/Screens/LoginScreen/signupScreen.dart';
@@ -41,14 +40,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ))),
                 FadeAnimation(2.6,Row(
                   children: <Widget>[
-                    Text(".වළව්ව", style: TextStyle(
+                    Text(".Hotel පොත", style: TextStyle(
                       color: Colors.white,
                       fontSize: 50,
                       fontWeight: FontWeight.bold
                     )),
                     Padding(
                       padding: const EdgeInsets.only(left:6.0),
-                      child: Image.asset("assets/images/hotellogo2.png", 
+                      child: Image.asset("assets/images/logo1.png", 
                       fit: BoxFit.cover,
                       scale: 20,),
                     ),
