@@ -251,10 +251,12 @@ class _LoginScreenState extends State<LoginScreen>
   setToken() async {
        SharedPreferences login = await SharedPreferences.getInstance();
         final _token = login.getString("gettoken");
+        final _username = login.getString("username");
         print("token set");
 
         SharedPreferences logininit = await SharedPreferences.getInstance();
         logininit.setString("token", _token);
+        logininit.setString("username", _username);
   }
 
   postUserData() {
@@ -275,7 +277,7 @@ class _LoginScreenState extends State<LoginScreen>
         });
         _positionController.forward();
       }
-      else if(_result == 'admin'){
+      else if(_result == 'admin' || _result == 'hotel'){
         pr.hide();
         Dialogs.errorDialog(context, 'ERROR', "This is not a user acccount !");
       }

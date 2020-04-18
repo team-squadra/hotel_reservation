@@ -61,25 +61,52 @@ class StubData {
       ];
 
   List<Widget> get facilities => [
-        SvgPicture.asset(
-          "assets/images/ic_room_service_6.svg",
-          fit: BoxFit.none,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              "assets/images/pool.png",
+              fit: BoxFit.none,
+            ),
+            Text('Pool')
+          ],
         ),
-        SvgPicture.asset(
-          "assets/images/ic_room_service_2.svg",
-          fit: BoxFit.none,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              "assets/images/bar.png",
+              fit: BoxFit.none,
+            ),
+            Text('Bar')
+          ],
         ),
-        SvgPicture.asset(
-          "assets/images/ic_room_service_1.svg",
-          fit: BoxFit.none,
+        Column(
+          children: <Widget>[
+            Image.asset(
+              "assets/images/parking.png",
+              fit: BoxFit.none,
+            ),
+            Text('Parking')
+          ],
         ),
-        SvgPicture.asset(
-          "assets/images/ic_room_service_4.svg",
-          fit: BoxFit.none,
+        Column(
+          children: <Widget>[
+            Image.asset(
+              "assets/images/spa.png",
+              fit: BoxFit.none,
+            ),
+            Text('Spa')
+          ],
         ),
-        SvgPicture.asset(
-          "assets/images/ic_room_service_3.svg",
-          fit: BoxFit.none,
+        Column(
+          children: <Widget>[
+            Image.asset(
+              "assets/images/wifi.png",
+              fit: BoxFit.none,
+            ),
+            Text('Wifi')
+          ],
         ),
         SvgPicture.asset(
           "assets/images/ic_room_service_5.svg",

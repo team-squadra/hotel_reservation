@@ -33,6 +33,7 @@ dependencies:
   shared_preferences:
   progress_dialog: ^1.2.0
   awesome_dialog: ^0.1.0
+  intl: ^0.15.8
 
 dev_dependencies:
   flutter_test:

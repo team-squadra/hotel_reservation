@@ -6,8 +6,30 @@ import 'package:hotelreservation/Common/components/home_components/parallax_page
 
 class BottomSheetContent extends StatelessWidget {
   final AnimationController controller;
+  final String hotelName;
+  final String location;
+  final String description;
+  final String email;
+  final String phoneNum;
+  final String pool;
+  final String parking;
+  final String spa;
+  final String bar;
+  final String wifi;
 
-  BottomSheetContent({this.controller});
+  BottomSheetContent({
+    this.controller,
+    this.hotelName,
+    this.location,
+    this.description,
+    this.email,
+    this.phoneNum,
+    this.pool,
+    this.parking,
+    this.spa,
+    this.bar,
+    this.wifi
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +60,9 @@ class BottomSheetContent extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                "The Curtain Hotel",
+                                hotelName,
                                 style: TextStyle(
-                                    color: themeData.primaryColorLight, fontSize: 24),
+                                    color: themeData.primaryColorLight, fontSize: 24,fontWeight: FontWeight.bold),
                               ),
                               Container(
                                 child: Row(
@@ -72,25 +94,26 @@ class BottomSheetContent extends StatelessWidget {
                                 color: themeData.textTheme.display3.color,
                               ),
                               const SizedBox(width: 5),
-                              Text("45 Curtain Road, London EC2A 3PT"),
+                              Text(location),
                             ],
                           ),
-                          const SizedBox(height: 18),
+                          const SizedBox(height: 20),
                           Text(
                             "DETAILS",
-                            style: TextStyle(letterSpacing: 1),
+                            style: TextStyle(fontSize: 15,letterSpacing: 1,fontWeight: FontWeight.bold),
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            "It’s only fitting that a five-star hotel bar has a five-star decor scheme and London’s Green Room certainly does not disappoint when it comes to the latter. Velvet upholstery, sleek, brass accents, and vibrantly colorful floral motifs are just a Read more",
-                            style: TextStyle(height: 1.4),
+                          const SizedBox(height: 10),
+                          Text(description,
+                            style: TextStyle(
+                              height: 1.4,
+                              ),
                           ),
                           const SizedBox(height: 20),
                           Text(
                             "FACILITIES",
-                            style: TextStyle(letterSpacing: 1),
+                            style: TextStyle(letterSpacing: 1,fontWeight: FontWeight.bold),
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: 12),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: StubData().facilities,

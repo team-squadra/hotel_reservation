@@ -8,12 +8,45 @@ import 'package:hotelreservation/Common/components/home_components/sliding_botto
 class SlidingBottomSheet extends StatefulWidget {
   final AnimationController controller;
   final double cornerRadius;
+  final String hotelName;
+  final String location;
+  final String description;
+  final String email;
+  final String phoneNum;
+  final String pool;
+  final String parking;
+  final String spa;
+  final String bar;
+  final String wifi;
 
-  SlidingBottomSheet({this.controller, this.cornerRadius});
+  SlidingBottomSheet({
+    this.controller,
+    this.cornerRadius,
+    this.hotelName,
+    this.location,
+    this.description,
+    this.email,
+    this.phoneNum,
+    this.pool,
+    this.parking,
+    this.spa,
+    this.bar,
+    this.wifi});
 
   @override
   _SlidingBottomSheetState createState() => _SlidingBottomSheetState(
-      bottomSheetController: controller, cornerRadius: cornerRadius);
+      bottomSheetController: controller, 
+      cornerRadius: cornerRadius,
+      hotelName:hotelName,
+      location:location,
+      description: description,
+      email: email,
+      phoneNum: phoneNum,
+      pool: pool,
+      parking: parking,
+      spa: spa,
+      bar: bar,
+      wifi: wifi);
 }
 
 class _SlidingBottomSheetState extends State<SlidingBottomSheet>
@@ -21,7 +54,31 @@ class _SlidingBottomSheetState extends State<SlidingBottomSheet>
   final AnimationController bottomSheetController;
   final double cornerRadius;
 
-  _SlidingBottomSheetState({this.bottomSheetController, this.cornerRadius});
+  final String hotelName;
+  final String location;
+  final String description;
+  final String email;
+  final String phoneNum;
+  final String pool;
+  final String parking;
+  final String spa;
+  final String bar;
+  final String wifi;
+
+  _SlidingBottomSheetState({
+    this.bottomSheetController, 
+    this.cornerRadius,
+    this.hotelName,
+    this.location,
+    this.description,
+    this.email,
+    this.phoneNum,
+    this.pool,
+    this.parking,
+    this.spa,
+    this.bar,
+    this.wifi
+    });
 
   double get halfScreen => MediaQuery.of(context).size.height / 2;
 
@@ -108,7 +165,19 @@ class _SlidingBottomSheetState extends State<SlidingBottomSheet>
                         ),
                       ),
                     ),
-                    BottomSheetContent(controller: bottomSheetController)
+                    BottomSheetContent(
+                      controller: bottomSheetController,
+                      hotelName: hotelName,
+                      location:location,
+                      description: description,
+                      email: email,
+                      phoneNum: phoneNum,
+                      pool: pool,
+                      parking: parking,
+                      spa: spa,
+                      bar: bar,
+                      wifi: wifi
+                      )
                   ]),
                 ),
               ),

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hotelreservation/Common/components/home_components/parallax_page_view.dart';
 import 'package:hotelreservation/Common/components/home_components/sliding_bottom_sheet.dart';
@@ -5,28 +6,69 @@ import 'package:hotelreservation/Common/icons.dart';
 import 'package:hotelreservation/Common/navigation/fade_route.dart';
 import 'package:hotelreservation/Common/theme.dart';
 import 'package:hotelreservation/Common/widget/blur_icon.dart';
+import 'package:hotelreservation/Screens/Bookings/add_booking.dart';
 import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
 import 'package:page_indicator/page_indicator.dart';
 import 'package:rect_getter/rect_getter.dart';
 
 class DetailScreen extends StatefulWidget {
-  final String heroTag;
+  final String hotelName;
   final String imageAsset;
+  final String location;
+  final String description;
+  final String email;
+  final String phoneNum;
+  final String pool;
+  final String parking;
+  final String spa;
+  final String bar;
+  final String wifi;
 
   DetailScreen({
-    this.heroTag,
+    this.hotelName,
     this.imageAsset,
+    this.location,
+    this.description,
+    this.email,
+    this.phoneNum,
+    this.pool,
+    this.parking,
+    this.spa,
+    this.bar,
+    this.wifi
   });
 
   @override
-  _DetailScreenState createState() =>
-      _DetailScreenState(heroTag: heroTag, imageAsset: imageAsset);
+  _DetailScreenState createState() => _DetailScreenState(
+    hotelName:hotelName, 
+    imageAsset:imageAsset,
+    location:location,
+    description: description,
+    email: email,
+    phoneNum: phoneNum,
+    pool: pool,
+    parking: parking,
+    spa: spa,
+    bar: bar,
+    wifi: wifi
+    );
 }
 
 class _DetailScreenState extends State<DetailScreen>
     with SingleTickerProviderStateMixin {
-  final String heroTag;
+
+  final String hotelName;
   final String imageAsset;
+  final String location;
+  final String description;
+  final String email;
+  final String phoneNum;
+  final String pool;
+  final String parking;
+  final String spa;
+  final String bar;
+  final String wifi;    
+
   final double bottomSheetCornerRadius = 50;
 
   final Duration animationDuration = Duration(milliseconds: 600);
@@ -35,9 +77,19 @@ class _DetailScreenState extends State<DetailScreen>
   Rect rect;
 
   _DetailScreenState({
-    this.heroTag,
+    this.hotelName,
     this.imageAsset,
+    this.location,
+    this.description,
+    this.email,
+    this.phoneNum,
+    this.pool,
+    this.parking,
+    this.spa,
+    this.bar,
+    this.wifi
   });
+
 
   static double bookButtonBottomOffset = -60;
   double bookButtonBottom = bookButtonBottomOffset;
@@ -87,12 +139,14 @@ class _DetailScreenState extends State<DetailScreen>
         return true;
       },
       child: Scaffold(
+        resizeToAvoidBottomPadding: true, // this avoids the overflow error
+      resizeToAvoidBottomInset: true,
         body: Stack(
           children: <Widget>[
             Container(),
             Hero(
               createRectTween: ParallaxPageView.createRectTween,
-              tag: heroTag,
+              tag: hotelName,
               child: Container(
                 height: coverImageHeightCalc,
                 child: ClipRRect(
@@ -107,16 +161,15 @@ class _DetailScreenState extends State<DetailScreen>
                       shape: IndicatorShape.circle(size: 8),
                       child: PageView(
                         children: <Widget>[
+                         Image.memory(
+                        base64Decode(imageAsset),
+                        fit: BoxFit.cover),
                           Image.asset(
-                            imageAsset,
+                            "assets/images/hotel_2.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
                           Image.asset(
-                            "img/hotel_2.jpg", // <- stubbed data
-                            fit: BoxFit.cover,
-                          ),
-                          Image.asset(
-                            "img/hotel_3.jpg", // <- stubbed data
+                            "assets/images/hotel_3.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
                         ],
@@ -128,7 +181,7 @@ class _DetailScreenState extends State<DetailScreen>
               top: 46,
               right: 24,
               child: Hero(
-                tag: "${heroTag}heart",
+                tag: "${hotelName}heart",
                 child: BlurIcon(
                   icon: Icon(
                     HotelBookingConcept.ic_heart_empty,
@@ -142,7 +195,7 @@ class _DetailScreenState extends State<DetailScreen>
               top: 46,
               left: 24,
               child: Hero(
-                tag: "${heroTag}chevron",
+                tag: "${hotelName}chevron",
                 child: GestureDetector(
                   onTap: () async {
                     await _bottomSheetController.animateTo(0,
@@ -165,6 +218,16 @@ class _DetailScreenState extends State<DetailScreen>
             SlidingBottomSheet(
               controller: _bottomSheetController,
               cornerRadius: bottomSheetCornerRadius,
+              hotelName: hotelName,
+              location: location,
+              description: description,
+              email: email,
+              phoneNum: phoneNum,
+              pool: pool,
+              parking: parking,
+              spa: spa,
+              bar: bar,
+              wifi: wifi
             ),
             AnimatedPositioned(
               duration: Duration(milliseconds: 400),
@@ -179,6 +242,20 @@ class _DetailScreenState extends State<DetailScreen>
                 key: rectGetterKey,
                 child: GestureDetector(
                   // onTap: _onTap,
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (BuildContext context) {
+                        return Dialog(
+                           child: AddBookingPage(hotelName: hotelName,hotelImg: imageAsset,),
+                           shape: RoundedRectangleBorder(
+                             borderRadius: BorderRadius.all(Radius.circular(12))
+                           ),
+                        );
+                      }
+                    );
+                  },
                   child: Container(
                     height: 60,
                     width: 172,
@@ -188,7 +265,7 @@ class _DetailScreenState extends State<DetailScreen>
                             BorderRadius.only(topLeft: Radius.circular(50))),
                     child: Center(
                       child: Text(
-                        "Book",
+                        "Book Now",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),

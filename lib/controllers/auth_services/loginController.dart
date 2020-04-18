@@ -21,9 +21,11 @@ class LoginService {
       if (response.statusCode == 200) {
         print(res_data['status']);
         final _token = res_data['token'];
+        final _username = res_data['name'];
         print(_token);
         SharedPreferences login = await SharedPreferences.getInstance();
         login.setString("gettoken", _token);
+        login.setString("username", _username);
 
         final status = res_data['status'];
 

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:hotelreservation/Controllers/hotel_controllers/getHotelsService.dart';
 import 'package:hotelreservation/Models/hotelModel.dart';
@@ -35,7 +34,20 @@ class _HotelCardsState extends State<HotelCards> {
             return GestureDetector(
               onTap: () {
                 print(hotelsList[index].hotelName);
-                Navigator.of(context).pushNamed("/details");
+                 Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => DetailScreen(
+                                     hotelName: hotelsList[index].hotelName,
+                                     imageAsset: hotelsList[index].hotelImg,
+                                     location: hotelsList[index].location,
+                                     description: hotelsList[index].description,
+                                     email: hotelsList[index].email,
+                                     phoneNum: hotelsList[index].phoneNum,
+                                     pool: hotelsList[index].pool,
+                                     parking: hotelsList[index].parking,
+                                     spa: hotelsList[index].spa,
+                                     bar: hotelsList[index].bar,
+                                     wifi: hotelsList[index].wifi,
+                                     )));
               },
               child: Container(
                 margin: const EdgeInsets.only(
@@ -43,7 +55,11 @@ class _HotelCardsState extends State<HotelCards> {
                 child: Stack(children: <Widget>[
                   ClipRRect(
                     borderRadius: BorderRadius.circular(40.0),
-                    child: Image.memory(
+                    child:hotelsList[index].hotelImg == ""
+
+                    ? Image.asset('assets/images/noimg.png')
+                    
+                    :Image.memory(
                         base64Decode(hotelsList[index].hotelImg),
                         width: 250,
                         height: 300,

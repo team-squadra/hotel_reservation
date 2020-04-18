@@ -14,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   SharedPreferences logininit;
   String _searchText;
+  String name;
+
 
   Widget _buildHeader() {
     return Positioned(
