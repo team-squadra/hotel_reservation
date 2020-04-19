@@ -108,10 +108,10 @@ class StubData {
             Text('Wifi')
           ],
         ),
-        SvgPicture.asset(
-          "assets/images/ic_room_service_5.svg",
-          fit: BoxFit.none,
-        ),
+        // SvgPicture.asset(
+        //   "assets/images/ic_room_service_5.svg",
+        //   fit: BoxFit.none,
+        // ),
       ];
 }
 

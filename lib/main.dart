@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotelreservation/Common/theme.dart';
+import 'package:hotelreservation/Screens/Bookings/my_bookings.dart';
 import 'package:hotelreservation/Screens/HomeScreen/detail_screen.dart';
+import 'package:hotelreservation/Screens/HomeScreen/home_screen.dart';
 import 'package:hotelreservation/Screens/LoginScreen/loginScreen.dart';
 import 'package:hotelreservation/Screens/SplashScreen/splash_screen.dart';
 
@@ -28,6 +30,9 @@ class _HotelConceptAppState extends State<HotelConceptApp> {
       routes: <String, WidgetBuilder>{
         
         "/details": (BuildContext context) => new DetailScreen(),
+        "/Home": (BuildContext context) => new HomeScreen (),
+        "/mybookings": (BuildContext context) => new MyBookings(),
+
       
 
        

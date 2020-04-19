@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/material.dart';
 
 class Dialogs {
   
@@ -22,7 +23,23 @@ class Dialogs {
             tittle: title,
             desc: dec,
             // btnCancelOnPress: () {},
-            btnOkOnPress: () {})
+            btnOkOnPress: () {
+              Navigator.of(context).pop();
+            })
+        .show();
+  }
+
+    static Future<dynamic> bookingSuccessDialog(context,String title, String dec) {
+    return AwesomeDialog(
+            context: context,
+            dialogType: DialogType.SUCCES,
+            animType: AnimType.TOPSLIDE,
+            tittle: title,
+            desc: dec,
+            // btnCancelOnPress: () {},
+            btnOkOnPress: () {
+              Navigator.of(context).pop();
+            })
         .show();
   }
 

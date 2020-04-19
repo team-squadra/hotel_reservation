@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
     return Expanded(
           child: TextField(
         controller: controller,
+        keyboardType: TextInputType.number,
         decoration: InputDecoration(
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20))),

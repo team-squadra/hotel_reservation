@@ -34,7 +34,11 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
         children: <Widget>[
           _buildNav('Home', Icons.home, 0),
           _buildNav('Notification', Icons.notifications, 1),
-          _buildNav('Saved', Icons.bookmark, 2),
+          GestureDetector(
+            onTap: (){
+              Navigator.of(context).pushNamed("/mybookings");
+            },
+            child: _buildNav('Saved', Icons.bookmark, 2)),
           _buildNav('Profile', Icons.person, 3),
         ],
       ),
